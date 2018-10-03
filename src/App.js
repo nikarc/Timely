@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import store from './store';
+
+import ClientView from './Views/Clients/ClientsView';
+
+import './App.scss';
+import '../node_modules/uikit/dist/css/uikit.min.css';
+import '../node_modules/uikit/dist/js/uikit';
+import '../node_modules/uikit/dist/js/uikit-icons';
+
+window.store = store;
+
+library.add(faPlus);
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <div id="app"></div>
+          <Route exact path="/" component={ClientView} />
+        </div>
+      </Router>
     );
   }
 }
