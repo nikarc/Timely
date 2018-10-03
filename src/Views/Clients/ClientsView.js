@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Modal from '../../Components/Modal';
-import { addClient } from '../../actions';
+import { addClient, setCurrentClient } from '../../actions';
+import { Link } from 'react-router-dom';
 
 import './Clients.scss';
 
@@ -12,7 +13,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addClient: client => dispatch(addClient(client))
+    addClient: client => dispatch(addClient(client)),
+    setCurrentClient: client => dispatch(setCurrentClient(client))
   }
 }
 
@@ -92,7 +94,9 @@ class ConnectedClientView extends React.Component {
         <div className="uk-width-2-3 client-list">
           <ul>
             {clients.map(c => (
-              <li className="uk-card uk-card-body uk-card-default" key={c.id}>{c.name} - <small>${c.rate}/hr</small></li>
+              <Link to={`/clients/${c.id}`} key={c.id}>
+                <li className="uk-card uk-card-body uk-card-default">{c.name} - <small>${c.rate}/hr</small></li>
+              </Link>
             ))}
           </ul>
         </div>

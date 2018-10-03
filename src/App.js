@@ -4,7 +4,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import store from './store';
 
+// Views
 import ClientView from './Views/Clients/ClientsView';
+import CurrentClientView from './Views/Clients/CurrentClientView';
+
+// Components
+import Aside from './Components/Aside';
 
 import './App.scss';
 import '../node_modules/uikit/dist/css/uikit.min.css';
@@ -15,14 +20,19 @@ window.store = store;
 
 library.add(faPlus);
 
+const asideId = 'aside';
+
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <div id="app"></div>
-          <Route exact path="/" component={ClientView} />
-        </div>
+        <Aside id={asideId}>
+          <div>
+            <div id="app"></div>
+            <Route exact path="/" component={ClientView} />
+            <Route path="/clients/:clientId" component={CurrentClientView} />
+          </div>
+        </Aside>
       </Router>
     );
   }
