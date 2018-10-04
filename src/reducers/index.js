@@ -6,7 +6,13 @@ const initalState = {
     rate: 33,
     id: 1
   }],
-  currentClient: null
+  currentClient: null,
+  tasks: [{
+    name: 'First Task',
+    clientId: 1,
+    hoursLogged: 0,
+    id: 1
+  }]
 };
 
 const rootReducer = (state = initalState, action) => {

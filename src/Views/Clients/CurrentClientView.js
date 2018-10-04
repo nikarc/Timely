@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import TaskList from '../../Components/TaskList';
 
 const mapStateToProps = state => {
   return { clients: state.clients };
@@ -21,10 +22,11 @@ class ConnectedCurrentClientView extends React.Component {
     const { client } = this.state;
     return (
       <div uk-grid="true">
-        <div className="uk-width-1">
-          <div className="uk-card uk-card-body uk-card-default">
+        <div className="uk-width-2-3">
+          <div className="uk-card uk-card-body">
             <h3>{client.name}</h3>
             <small>${client.rate}</small>
+            <TaskList clientId={client.id} />
           </div>
         </div>
       </div>
