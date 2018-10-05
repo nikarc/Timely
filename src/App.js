@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlus, faPlay } from '@fortawesome/free-solid-svg-icons';
+import {
+  faPlus,
+  faPlay,
+  faStop,
+  faPause,
+} from '@fortawesome/free-solid-svg-icons';
 import store from './store';
 
 // Views
@@ -18,7 +23,7 @@ import '../node_modules/uikit/dist/js/uikit-icons';
 
 window.store = store;
 
-library.add(faPlus, faPlay);
+library.add(faPlus, faPlay, faStop, faPause);
 
 const asideId = 'aside';
 

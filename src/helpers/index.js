@@ -8,3 +8,10 @@ export const truncateString = string => {
   const split = string.split(' ');
   return split.length > 1 ? split.slice(0, 2).map(s => s.substr(0, 1)).join('') : split[0].substr(0, 1);
 }
+
+/**
+ * Return double digits form numbers < 10
+ * e.g. 9 => '09'
+ * @param {Number} number
+ */
+export const formatDoubleDigits = number => number < 10 ? `0${number}` : `${number}`;

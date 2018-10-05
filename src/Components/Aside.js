@@ -1,5 +1,6 @@
 import React from 'react';
 import ClientList from './ClientList';
+import TimeClock from './TimeClock';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -15,7 +16,7 @@ const ConnectedAside = ({ children, id, clients }) => (
     <div id="offcanvas-usage" uk-offcanvas="flip: true">
       <div className="uk-offcanvas-bar">
         <button className="uk-offcanvas-close" type="button" uk-close="true"></button>
-        {/* Time clock goes here */}
+        <TimeClock />
         <ClientList allowTaskInteraction={true} />
       </div>
     </div>
